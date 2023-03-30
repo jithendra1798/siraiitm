@@ -28,22 +28,22 @@ class CustomUserAdmin(UserAdmin):
     # add_form = UserCreationForm
     # add_form.Meta.field_classes['username'] = UsernameField
     list_display = (
-        'username', 'first_name', 'gender','is_on_break',
+        'email', 'first_name', 'gender','is_on_break',
         'is_staff', 'image_tag', 'last_updated'
         )
     list_filter = ("is_staff", "is_superuser", "is_active", "groups")
-    search_fields = ("username", "first_name", "last_name", "email")
-    ordering = ("username", "-is_staff", )
+    search_fields = ("email", "first_name", "last_name", "email")
+    ordering = ("email", "-is_staff", )
     readonly_fields = (
         'date_joined', 'last_login', 'last_updated', 'id', 'image_tag'
     )
 
     fieldsets = (
         (None, {
-            'fields': ( 'username', 'password', )
+            'fields': ( 'email', 'password', )
         }),
         ('Personal info', {
-            'fields': ('first_name', 'last_name', 'email', 'mobile',
+            'fields': ('first_name', 'last_name', 'personal_email', 'mobile',
                        'date_of_birth', 'gender', 'photo', 'image_tag')
         }),
         ('Permissions', {
@@ -65,7 +65,7 @@ class CustomUserAdmin(UserAdmin):
     # Fields displayed on Add object page
     add_fieldsets = (
         (None, {
-            'fields': ('username', 'password1', 'password2')
+            'fields': ('email', 'password1', 'password2')
         }),
         # ('Personal info', {
         #     'fields': ('first_name', 'last_name', 'email')
