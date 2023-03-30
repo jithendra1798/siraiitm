@@ -58,7 +58,7 @@ def get_profile_image_upload_path(instance, filename):
 class CustomUser(AbstractUser):
 
 	email = models.EmailField('IITM Email', unique=True)
-	username = None
+	# username = None
 	USERNAME_FIELD = 'email'
 	# REQUIRED_FIELDS = ['first_name', 'last_name']
 
