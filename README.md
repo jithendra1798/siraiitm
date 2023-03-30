@@ -1,4 +1,4 @@
-# IITM-Database
+# SIRA-Student Information and Resource Administration
 ***
 
 ### Course registration
