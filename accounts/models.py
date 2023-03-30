@@ -26,7 +26,7 @@ class UserManager(BaseUserManager):
 			raise ValueError('Email is required')
 
 		email = self.normalize_email(email)
-		user = self.model(email=email, username=email, **extra_fields)
+		user = self.model(email=email, **extra_fields)
 		user.set_password(password)
 		user.save(using=self._db)
 		return user
@@ -58,7 +58,7 @@ def get_profile_image_upload_path(instance, filename):
 class CustomUser(AbstractUser):
 
 	email = models.EmailField('IITM Email', unique=True)
-	# username = None
+	username = None
 	USERNAME_FIELD = 'email'
 	# REQUIRED_FIELDS = ['first_name', 'last_name']
 
